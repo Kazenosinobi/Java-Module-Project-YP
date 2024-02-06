@@ -22,6 +22,7 @@ public class Input {
                 System.out.println("Введите числовое значение!");
                 scanner.nextLine();
             }
+            scanner.close();
         }
         return persons;
     }

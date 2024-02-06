@@ -27,17 +27,21 @@ public class Calculator {
             listOfFood.add(nameOfFood);
 
             System.out.println("Укажите стоимость в рублях (Например: 100,50)");
-            float price = 0f;
+            float price;
 
-            while (price <= 0f) {
-                while (!scanner.hasNextFloat()) {
+            while (true) {
+                if (scanner.hasNextFloat()) {
+                    price = scanner.nextFloat();
+                    scanner.nextLine();
+                    if (price <= 0f) {
+                        System.out.println("Введена отрицательная стоимость, пожалуйста введите повторно! (Например: 100,50)");
+                    } else {
+                        break;
+                    }
+                } else {
                     scanner.nextLine();
                     System.out.println("Введён не верный формат стоимости, пожалуйста введите повторно! (Например: 100,50)");
                 }
-
-                price = scanner.nextFloat();
-                scanner.nextLine();
-                System.out.println("Введена отрицательная стоимость, пожалуйста введите повторно! (Например: 100,50)");
             }
 
             System.out.println("Цена добавлена!");
